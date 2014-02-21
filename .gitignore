@@ -1,0 +1,9 @@
+# The following are used in the ant build process and should be generated
+# instead of being stored in git.
+build/api
+build/code-browser
+build/coverage
+build/logs
+build/pdepend
+build/docblox
+cache.properties

@@ -1,0 +1,41 @@
+<phpunit bootstrap="src/protected/tests/bootstrap.php"
+    verbose="true">
+
+    <testsuites>
+        <testsuite name="FTF Unit Tests">
+            <directory suffix=".php">src/protected/tests/unit</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src/protected</directory>
+            <!-- TODO: Maybe views shouldn't be excluded? phpunit crashes if
+                 it's included! -->
+            <exclude>
+                <file>src/protected/yiic.php</file>
+                <file>src/protected/yiit.php</file>
+                <directory suffix=".php">src/protected/views</directory>
+                <directory suffix=".php">src/protected/modules/admin/views</directory>
+                <directory suffix=".php">src/protected/vendors/</directory>
+                <directory suffix=".php">src/protected/extensions</directory>
+                <directory suffix=".php">src/protected/tests</directory>
+                <directory suffix=".php">/usr/share/php</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-html" target="build/coverage" title="FTF"
+            charset="UTF-8" yui="true" highlight="true"
+            lowUpperBound="35" highLowerBound="70"/>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+        <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
+    </logging>
+
+	<selenium>
+		<browser name="Internet Explorer" browser="*iexplore" />
+		<browser name="Firefox" browser="*firefox" />
+	</selenium>
+
+</phpunit>

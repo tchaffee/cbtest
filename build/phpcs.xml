@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<ruleset name="Bluecrow">
+
+    <description>Bluecrow PHP Coding Standards</description>
+
+   <!--
+        Include all sniffs in the PSR standards.
+    -->
+    <rule ref="PSR1" />
+    <rule ref="PSR2" />
+
+    <!--
+        Include all sniffs in the PEAR standard, except for file level comment
+        tags since the requirement only make sense for distributed code.
+    <rule ref="PEAR">
+        <exclude name="PEAR.Commenting.FileComment"/>
+        <exclude name="PEAR.Commenting.ClassComment"/>
+    </rule>
+   -->
+
+    <!--
+        Replace the PEAR file level commenting standard with our own.
+    <rule ref="/usr/share/php/BlueCrowStandards"/>
+    -->
+
+    <!-- Lines can be 80 chars long, but never show errors
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="80"/>
+            <property name="absoluteLineLimit" value="0"/>
+        </properties>
+    </rule>
+    -->
+
+</ruleset>
