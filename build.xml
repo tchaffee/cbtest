@@ -2,7 +2,7 @@
 
 <project name="cbtest" default="build">
  <target name="build"
-   depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdocblox,phpunit"/>
+   depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdoc,phpunit"/>
 
  <target name="clean" description="Cleanup build artifacts">
   <delete dir="${basedir}/build/api"/>
@@ -91,14 +91,14 @@
   </exec>
  </target>
 
- <target name="phpdocblox"
-   description="Generate API documentation using phpDocBlox">
-  <exec executable="docblox">
+ <target name="phpdoc"
+   description="Generate API documentation using phpdoc">
+  <exec executable="phpdoc">
+   <arg value="run" />
    <arg value="-d" />
    <arg value="${basedir}/src" />
    <arg value="-t" />
    <arg value="${basedir}/build/api" />
-   <arg path="${basedir}/src" />
   </exec>
  </target>
 
